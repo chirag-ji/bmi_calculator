@@ -23,13 +23,6 @@ class BMICalculator extends StatelessWidget {
         body: Center(
           child: Text('Body Text Here'),
         ),
-        floatingActionButton: Theme(
-          data: ThemeData.light(),
-          child: FloatingActionButton(
-            onPressed: () => {},
-            child: Icon(Icons.admin_panel_settings),
-          ),
-        ),
       ),
     );
   }

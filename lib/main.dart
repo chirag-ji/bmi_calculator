@@ -1,5 +1,5 @@
 import 'package:bmi_calculator/app.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:bmi_calculator/window.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,9 +20,7 @@ class BMICalculator extends StatelessWidget {
           title: Text(App.appName),
           centerTitle: true,
         ),
-        body: Center(
-          child: Text('Body Text Here'),
-        ),
+        body: Window(),
       ),
     );
   }

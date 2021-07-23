@@ -1,5 +1,7 @@
 import 'package:bmi_calculator/widget/app_card.dart';
+import 'package:bmi_calculator/widget/icon_tile.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 const double bottomContainerHeight = 80.0;
 const Color bottomContainerColor = Color(0xFFEB1555);
@@ -26,9 +28,17 @@ class _WindowState extends State<Window> {
             children: [
               AppCard(
                 color: activeCardColor,
+                child: IconTile(
+                  icon: FontAwesomeIcons.mars,
+                  text: 'MALE',
+                ),
               ),
               AppCard(
                 color: activeCardColor,
+                child: IconTile(
+                  icon: FontAwesomeIcons.venus,
+                  text: 'FEMALE',
+                ),
               ),
             ],
           ),

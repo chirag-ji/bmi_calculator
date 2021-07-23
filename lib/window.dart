@@ -1,4 +1,4 @@
-import 'package:bmi_calculator/app_card.dart';
+import 'package:bmi_calculator/widget/app_card.dart';
 import 'package:flutter/material.dart';
 
 const double bottomContainerHeight = 80.0;

@@ -15,7 +15,7 @@ class AppCard extends StatelessWidget {
         onTap: this.onTap,
         child: Container(
           child: this.child,
-          height: 200.0,
+          height: 165.0,
           margin: EdgeInsets.all(15.0),
           decoration: BoxDecoration(
             color: this._color,

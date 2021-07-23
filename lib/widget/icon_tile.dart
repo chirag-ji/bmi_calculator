@@ -1,6 +1,5 @@
+import 'package:bmi_calculator/app.dart';
 import 'package:flutter/material.dart';
-
-const Color _displayColor = Color(0XFF8D8E98);
 
 class IconTile extends StatelessWidget {
   final IconData icon;
@@ -21,7 +20,7 @@ class IconTile extends StatelessWidget {
         Center(
           child: Text(
             this.text,
-            style: TextStyle(fontSize: 18.0, color: _displayColor),
+            style: App.textStyle,
           ),
         ),
       ],

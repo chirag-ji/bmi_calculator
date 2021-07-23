@@ -19,15 +19,16 @@ class Window extends StatefulWidget {
 }
 
 class _WindowState extends State<Window> {
-  Color _maleCardColor = activeCardColor;
-  Color _femaleCardColor = activeCardColor;
+  Gender _selectedGender = Gender.MALE;
 
   void _onGenderTap(Gender gender) {
-    bool isMaleTap = gender == Gender.MALE;
     this.setState(() {
-      _maleCardColor = isMaleTap ? tappedCardColor : activeCardColor;
-      _femaleCardColor = isMaleTap ? activeCardColor : tappedCardColor;
+      _selectedGender = gender;
     });
+  }
+
+  Color _getTileColor(Gender gen) {
+    return _selectedGender == gen ? tappedCardColor : activeCardColor;
   }
 
   @override
@@ -40,7 +41,7 @@ class _WindowState extends State<Window> {
           Row(
             children: [
               AppCard(
-                color: _maleCardColor,
+                color: _getTileColor(Gender.MALE),
                 child: IconTile(
                   icon: FontAwesomeIcons.mars,
                   text: 'MALE',
@@ -48,7 +49,7 @@ class _WindowState extends State<Window> {
                 onTap: () => _onGenderTap(Gender.MALE),
               ),
               AppCard(
-                color: _femaleCardColor,
+                color: _getTileColor(Gender.FEMALE),
                 child: IconTile(
                   icon: FontAwesomeIcons.venus,
                   text: 'FEMALE',

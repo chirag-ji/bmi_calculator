@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/app.dart';
 import 'package:bmi_calculator/widget/app_card.dart';
 import 'package:bmi_calculator/widget/icon_tile.dart';
 import 'package:flutter/material.dart';
@@ -21,8 +22,8 @@ class _WindowState extends State<Window> {
   Color _maleCardColor = activeCardColor;
   Color _femaleCardColor = activeCardColor;
 
-  void _onGenderTap(int gen) {
-    bool isMaleTap = gen == 1;
+  void _onGenderTap(Gender gender) {
+    bool isMaleTap = gender == Gender.MALE;
     this.setState(() {
       _maleCardColor = isMaleTap ? tappedCardColor : activeCardColor;
       _femaleCardColor = isMaleTap ? activeCardColor : tappedCardColor;
@@ -44,7 +45,7 @@ class _WindowState extends State<Window> {
                   icon: FontAwesomeIcons.mars,
                   text: 'MALE',
                 ),
-                onTap: () => _onGenderTap(1),
+                onTap: () => _onGenderTap(Gender.MALE),
               ),
               AppCard(
                 color: _femaleCardColor,
@@ -52,7 +53,7 @@ class _WindowState extends State<Window> {
                   icon: FontAwesomeIcons.venus,
                   text: 'FEMALE',
                 ),
-                onTap: () => _onGenderTap(2),
+                onTap: () => _onGenderTap(Gender.FEMALE),
               ),
             ],
           ),

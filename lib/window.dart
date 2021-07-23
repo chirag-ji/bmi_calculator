@@ -8,6 +8,7 @@ const Color bottomContainerColor = Color(0xFFEB1555);
 const EdgeInsets bottomContainerMargin = EdgeInsets.only(top: 10.0);
 
 const Color activeCardColor = Color(0xFF1D1E33);
+const Color tappedCardColor = Color(0xFF111328);
 
 class Window extends StatefulWidget {
   const Window({Key? key}) : super(key: key);
@@ -17,6 +18,17 @@ class Window extends StatefulWidget {
 }
 
 class _WindowState extends State<Window> {
+  Color _maleCardColor = activeCardColor;
+  Color _femaleCardColor = activeCardColor;
+
+  void _onGenderTap(int gen) {
+    bool isMaleTap = gen == 1;
+    this.setState(() {
+      _maleCardColor = isMaleTap ? tappedCardColor : activeCardColor;
+      _femaleCardColor = isMaleTap ? activeCardColor : tappedCardColor;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,18 +39,20 @@ class _WindowState extends State<Window> {
           Row(
             children: [
               AppCard(
-                color: activeCardColor,
+                color: _maleCardColor,
                 child: IconTile(
                   icon: FontAwesomeIcons.mars,
                   text: 'MALE',
                 ),
+                onTap: () => _onGenderTap(1),
               ),
               AppCard(
-                color: activeCardColor,
+                color: _femaleCardColor,
                 child: IconTile(
                   icon: FontAwesomeIcons.venus,
                   text: 'FEMALE',
                 ),
+                onTap: () => _onGenderTap(2),
               ),
             ],
           ),

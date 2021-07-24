@@ -1,4 +1,7 @@
 import 'package:bmi_calculator/app.dart';
+import 'package:bmi_calculator/logic/bmi_calculator.dart';
+import 'package:bmi_calculator/model/Data.dart';
+import 'package:bmi_calculator/result_page.dart';
 import 'package:bmi_calculator/widget/adjustment_widget.dart';
 import 'package:bmi_calculator/widget/app_button.dart';
 import 'package:bmi_calculator/widget/app_card.dart';
@@ -171,6 +174,17 @@ class _WindowState extends State<Window> {
           ),
           AppButton(
             text: 'CALCULATE',
+            onTap: () {
+              Result res = BMICalculator.getBMI(
+                Data(_selectedGender, _height, _weight, _age),
+              );
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (ctx) => ResultPage(result: res),
+                ),
+              );
+            },
           )
         ],
       ),

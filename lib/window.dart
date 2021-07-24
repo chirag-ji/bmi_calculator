@@ -86,17 +86,25 @@ class _WindowState extends State<Window> {
                     )
                   ],
                 ),
-                Slider(
-                  max: App.maxHeight,
-                  min: App.minHeight,
-                  activeColor: App.accentActiveColor,
-                  inactiveColor: App.accentInactiveColor,
-                  value: _height,
-                  onChanged: (newHeight) {
-                    this.setState(() {
-                      _height = newHeight;
-                    });
-                  },
+                SliderTheme(
+                  data: SliderTheme.of(context).copyWith(
+                    activeTrackColor: Colors.white,
+                    inactiveTrackColor: App.accentInactiveColor,
+                    thumbColor: App.accentActiveColor,
+                    overlayColor: App.accentActiveColor.withAlpha(60),
+                    thumbShape: RoundSliderThumbShape(enabledThumbRadius: 15.0),
+                    overlayShape: RoundSliderOverlayShape(overlayRadius: 30.0),
+                  ),
+                  child: Slider(
+                    max: App.maxHeight,
+                    min: App.minHeight,
+                    value: _height,
+                    onChanged: (newHeight) {
+                      this.setState(() {
+                        _height = newHeight;
+                      });
+                    },
+                  ),
                 ),
               ],
             ),
@@ -105,9 +113,17 @@ class _WindowState extends State<Window> {
             children: [
               AppCard(
                 color: activeCardColor,
+                child: IconTile(
+                  text: 'INFINITY',
+                  icon: FontAwesomeIcons.infinity,
+                ),
               ),
               AppCard(
                 color: activeCardColor,
+                child: IconTile(
+                  text: 'INFINITY',
+                  icon: FontAwesomeIcons.infinity,
+                ),
               ),
             ],
           ),

@@ -6,6 +6,8 @@ class App {
   static const Color textDisplayColor = Color(0XFF8D8E98);
   static const Color accentActiveColor = Color(0xFFEB1555);
   static const Color accentInactiveColor = Color(0XFF8D8E98);
+  static const Color activeCardColor = Color(0xFF1D1E33);
+  static const Color tappedCardColor = Color(0xFF111328);
 
   static const TextStyle textStyle = TextStyle(
     fontSize: 18.0,

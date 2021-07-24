@@ -6,12 +6,6 @@ import 'package:bmi_calculator/widget/icon_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-const double bottomContainerHeight = 80.0;
-const EdgeInsets bottomContainerMargin = EdgeInsets.only(top: 10.0);
-
-const Color activeCardColor = Color(0xFF1D1E33);
-const Color tappedCardColor = Color(0xFF111328);
-
 class Window extends StatefulWidget {
   const Window({Key? key}) : super(key: key);
 
@@ -32,7 +26,7 @@ class _WindowState extends State<Window> {
   }
 
   Color _getTileColor(Gender gen) {
-    return _selectedGender == gen ? tappedCardColor : activeCardColor;
+    return _selectedGender == gen ? App.tappedCardColor : App.activeCardColor;
   }
 
   void _adjustWeight(AdjustmentAction action) {
@@ -79,7 +73,7 @@ class _WindowState extends State<Window> {
             ],
           ),
           AppCard(
-            color: activeCardColor,
+            color: App.activeCardColor,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -132,7 +126,7 @@ class _WindowState extends State<Window> {
           Row(
             children: [
               AppCard(
-                color: activeCardColor,
+                color: App.activeCardColor,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -154,7 +148,7 @@ class _WindowState extends State<Window> {
                 ),
               ),
               AppCard(
-                color: activeCardColor,
+                color: App.activeCardColor,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

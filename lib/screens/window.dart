@@ -1,7 +1,7 @@
 import 'package:bmi_calculator/app.dart';
 import 'package:bmi_calculator/logic/bmi_calculator.dart';
 import 'package:bmi_calculator/model/Data.dart';
-import 'package:bmi_calculator/result_page.dart';
+import 'package:bmi_calculator/screens/result_page.dart';
 import 'package:bmi_calculator/widget/adjustment_widget.dart';
 import 'package:bmi_calculator/widget/app_button.dart';
 import 'package:bmi_calculator/widget/app_card.dart';

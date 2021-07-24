@@ -1,5 +1,6 @@
 import 'package:bmi_calculator/app.dart';
 import 'package:bmi_calculator/widget/adjustment_widget.dart';
+import 'package:bmi_calculator/widget/app_button.dart';
 import 'package:bmi_calculator/widget/app_card.dart';
 import 'package:bmi_calculator/widget/icon_tile.dart';
 import 'package:flutter/material.dart';
@@ -174,11 +175,8 @@ class _WindowState extends State<Window> {
               ),
             ],
           ),
-          Container(
-            color: App.accentActiveColor,
-            margin: bottomContainerMargin,
-            width: double.infinity,
-            height: bottomContainerHeight,
+          AppButton(
+            text: 'CALCULATE',
           )
         ],
       ),

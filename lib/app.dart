@@ -11,6 +11,9 @@ class App {
     fontSize: 18.0,
     color: textDisplayColor,
   );
+
+  static const double maxHeight = 220.0;
+  static const double minHeight = 80.0;
 }
 
 enum Gender {

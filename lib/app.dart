@@ -20,3 +20,8 @@ enum Gender {
   MALE,
   FEMALE,
 }
+
+enum AdjustmentAction {
+  INCREASE,
+  DECREASE,
+}

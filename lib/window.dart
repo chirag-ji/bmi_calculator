@@ -1,4 +1,5 @@
 import 'package:bmi_calculator/app.dart';
+import 'package:bmi_calculator/widget/adjustment_widget.dart';
 import 'package:bmi_calculator/widget/app_card.dart';
 import 'package:bmi_calculator/widget/icon_tile.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,7 @@ class Window extends StatefulWidget {
 class _WindowState extends State<Window> {
   Gender _selectedGender = Gender.MALE;
   double _height = 180.0;
+  double _weight = 60.0;
 
   void _onGenderTap(Gender gender) {
     this.setState(() {
@@ -29,6 +31,14 @@ class _WindowState extends State<Window> {
 
   Color _getTileColor(Gender gen) {
     return _selectedGender == gen ? tappedCardColor : activeCardColor;
+  }
+
+  void _adjustWeight(AdjustmentAction action) {
+    double unit = 1;
+    if (action == AdjustmentAction.DECREASE) unit = -1;
+    setState(() {
+      _weight += unit;
+    });
   }
 
   @override
@@ -113,9 +123,24 @@ class _WindowState extends State<Window> {
             children: [
               AppCard(
                 color: activeCardColor,
-                child: IconTile(
-                  text: 'INFINITY',
-                  icon: FontAwesomeIcons.infinity,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('WEIGHT', style: App.textStyle),
+                    Text(
+                      _weight.round().toString(),
+                      style: TextStyle(
+                        fontSize: 50.0,
+                        fontWeight: FontWeight.w900,
+                      ),
+                    ),
+                    AdjustmentWidget(
+                      onIncrease: () =>
+                          _adjustWeight(AdjustmentAction.INCREASE),
+                      onDecrease: () =>
+                          _adjustWeight(AdjustmentAction.DECREASE),
+                    ),
+                  ],
                 ),
               ),
               AppCard(

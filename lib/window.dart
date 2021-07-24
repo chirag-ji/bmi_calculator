@@ -22,6 +22,7 @@ class _WindowState extends State<Window> {
   Gender _selectedGender = Gender.MALE;
   double _height = 180.0;
   double _weight = 60.0;
+  int _age = 20;
 
   void _onGenderTap(Gender gender) {
     this.setState(() {
@@ -38,6 +39,14 @@ class _WindowState extends State<Window> {
     if (action == AdjustmentAction.DECREASE) unit = -1;
     setState(() {
       _weight += unit;
+    });
+  }
+
+  void _adjustAge(AdjustmentAction action) {
+    int unit = 1;
+    if (action == AdjustmentAction.DECREASE) unit = -1;
+    setState(() {
+      _age += unit;
     });
   }
 
@@ -145,9 +154,22 @@ class _WindowState extends State<Window> {
               ),
               AppCard(
                 color: activeCardColor,
-                child: IconTile(
-                  text: 'INFINITY',
-                  icon: FontAwesomeIcons.infinity,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('AGE', style: App.textStyle),
+                    Text(
+                      _age.toString(),
+                      style: TextStyle(
+                        fontSize: 50.0,
+                        fontWeight: FontWeight.w900,
+                      ),
+                    ),
+                    AdjustmentWidget(
+                      onIncrease: () => _adjustAge(AdjustmentAction.INCREASE),
+                      onDecrease: () => _adjustAge(AdjustmentAction.DECREASE),
+                    ),
+                  ],
                 ),
               ),
             ],
